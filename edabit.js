@@ -94,3 +94,30 @@ function imposterFormula(i, p) {
 }
 
 
+// Create a function that takes the age and return the age in days.
+//
+//     Examples
+// calcAge(65) ➞ 23725
+//
+// calcAge(0) ➞ 0
+//
+// calcAge(20) ➞ 7300
+
+function calcAge(age) {
+    return age*365;
+}
+
+// Create a function which returns the length of a string, WITHOUT using String.length property.
+//
+//     Examples
+// length("Hello World") ➞ 11
+//
+// length("Edabit") ➞ 6
+//
+// length("wash your hands!") ➞ 16
+
+function length(s) {
+    var array = s.split("");
+    return array.length;
+}
+
