@@ -341,4 +341,20 @@ function cityFacts(city) {
     return city.name + " has a population of " + city.population + " and is situated in " + city.continent;
 }
 
+// Create a function that takes a string (a random name). If the last character of the name is an "n", return true, otherwise return false.
+//
+//     Examples
+// isLastCharacterN("Aiden") ➞ true
+//
+// isLastCharacterN("Piet") ➞ false
+//
+// isLastCharacterN("Bert") ➞ false
+//
+// isLastCharacterN("Dean") ➞ true
+
+
+function isLastCharacterN(word) {
+    return word.charAt(word.length-1) === "n";
+}
+
 
