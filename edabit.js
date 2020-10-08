@@ -204,3 +204,33 @@ function concat(arr1, arr2) {
     return arr1.concat(arr2);
 }
 
+// Create a function that returns true if a string contains any spaces.
+//
+//     Examples
+// hasSpaces("hello") ➞ false
+//
+// hasSpaces("hello, world") ➞ true
+//
+// hasSpaces(" ") ➞ true
+//
+// hasSpaces("") ➞ false
+//
+// hasSpaces(",./!@#") ➞ false
+
+function hasSpaces(str) {
+    return str.includes(" ");
+}
+
+// Create a function that takes an object argument sizes (contains width, length, height keys) and returns the volume of the box.
+//
+//     Examples
+// volumeOfBox({ width: 2, length: 5, height: 1 }) ➞ 10
+//
+// volumeOfBox({ width: 4, length: 2, height: 2 }) ➞ 16
+//
+// volumeOfBox({ width: 2, length: 3, height: 5 }) ➞ 30
+
+function volumeOfBox(sizes) {
+    return sizes.width*sizes.length*sizes.height;
+}
+
