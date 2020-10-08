@@ -234,3 +234,70 @@ function volumeOfBox(sizes) {
     return sizes.width*sizes.length*sizes.height;
 }
 
+// Luke Skywalker has family and friends. Help him remind them who is who. Given a string with a name, return the relation of that person to Luke.
+//
+//     Person	Relation
+// Darth Vader	father
+// Leia	sister
+// Han	brother in law
+// R2D2	droid
+// Examples
+// relationToLuke("Darth Vader") ➞ "Luke, I am your father."
+//
+// relationToLuke("Leia") ➞ "Luke, I am your sister."
+//
+// relationToLuke("Han") ➞ "Luke, I am your brother in law."
+
+function relationToLuke(name) {
+    if(name === "Darth Vader"){
+        return "Luke, I am your father.";
+    } else if(name === "Leia"){
+        return "Luke, I am your sister.";
+    } else if(name === "Han"){
+        return "Luke, I am your brother in law.";
+    } else if(name === "R2D2"){
+        return "Luke, I am your droid.";
+    }
+}
+
+// Given a Rubik's Cube with a side length of n, return the number of individual stickers that are needed to cover the whole cube.
+//
+// Pictures of Rubik's Cubes
+//
+// The Rubik's cube of side length 1 has 6 stickers.
+// The Rubik's cube of side length 2 has 24 stickers.
+// The Rubik's cube of side length 3 has 54 stickers.
+// Examples
+// howManyStickers(1) ➞ 6
+//
+// howManyStickers(2) ➞ 24
+//
+// howManyStickers(3) ➞ 54
+
+function howManyStickers(n) {
+    return (n**2)*6;
+}
+
+// Create a function that takes in an array of numbers and returns the sum of its cubes.
+//
+//     Examples
+// sumOfCubes([1, 5, 9]) ➞ 855
+// // Since 1^3 + 5^3 + 9^3 = 1 + 125 + 729 = 855
+//
+// sumOfCubes([3, 4, 5]) ➞ 216
+//
+// sumOfCubes([2]) ➞ 8
+//
+// sumOfCubes([]) ➞ 0
+// Notes
+// If given an empty array, return 0.
+
+function sumOfCubes(nums) {
+    var sum = 0;
+    nums.forEach(function(num){
+        sum += num**3;
+    })
+    return sum;
+}
+
+
