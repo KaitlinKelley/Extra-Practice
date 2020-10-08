@@ -133,3 +133,74 @@ function stackBoxes(n) {
     return n**2;
 }
 
+// Create a function that accepts a measurement value in inches and returns the equivalent of the measurement value in feet.
+//
+//     Examples
+// inchesToFeet(324) ➞ 27
+//
+// inchesToFeet(12) ➞ 1
+//
+// inchesToFeet(36) ➞ 3
+// Notes
+// If inches are under 12, return 0.
+
+function inchesToFeet(inches) {
+    if (inches < 12){
+        return 0;
+    } else {
+        return inches/12;
+    }
+}
+
+// Kinetic energy can be calculated with the following formula:
+//
+//     KE = 1/2mv²
+//
+// m is mass in kg
+// v is velocity in m/s
+// KE is kinetic energy in J
+// Return the Kinetic Energy in Joules, given the mass and velocity. For the purposes of this challenge, round answers to the nearest integer.
+//
+//     Examples
+// kineticEnergy(60, 3) ➞ 270
+//
+// kineticEnergy(45, 10) ➞ 2250
+//
+// kineticEnergy(63.5, 7.35) ➞ 1715
+
+function kineticEnergy(m, v) {
+    return Math.round((m*v*v)/2);
+}
+
+// Create a function that takes two numbers num1, num2, and an array arr and returns an array containing all the numbers in arr greater than num1 and less than num2.
+//
+//     Examples
+// arrBetween(3, 8, [1, 5, 95, 0, 4, 7]) ➞ [5, 4, 7]
+//
+// arrBetween(1, 10, [1, 10, 25, 8, 11, 6]) ➞ [8, 6]
+//
+// arrBetween(7, 32, [1, 2, 3, 78]) ➞ []
+
+function arrBetween(num1, num2, arr) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if ((arr[i] > num1)&&(arr[i] < num2)) {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+
+// Create a function to concatenate two integer arrays.
+//
+//     Examples
+// concat([1, 3, 5], [2, 6, 8]) ➞ [1, 3, 5, 2, 6, 8]
+//
+// concat([7, 8], [10, 9, 1, 1, 2]) ➞ [7, 8, 10, 9, 1, 1, 2]
+//
+// concat([4, 5, 1], [3, 3, 3, 3, 3]) ➞ [4, 5, 1, 3, 3, 3, 3, 3]
+
+function concat(arr1, arr2) {
+    return arr1.concat(arr2);
+}
+
