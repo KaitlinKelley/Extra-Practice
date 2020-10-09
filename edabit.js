@@ -357,4 +357,92 @@ function isLastCharacterN(word) {
     return word.charAt(word.length-1) === "n";
 }
 
+// Given the radius of a circle and the area of a square, return true if the circumference of the circle is greater than the square's perimeter and false if the square's perimeter is greater than the circumference of the circle.
+//
+//     Examples
+// circle_or_square(16, 625) ➞ True
+//
+// circle_or_square(5, 100) ➞ False
+//
+// circle_or_square(8, 144) ➞ True
+
+function circle_or_square(rad, area){
+    var circumference = 2*3.14*rad;
+    var perimeter = (Math.sqrt(area))*4;
+    return circumference > perimeter;
+}
+
+// Given two arrays, which represent two sandwiches, return whether both sandwiches use the same type of bread. The bread will always be found at the start and end of the array.
+//
+//     Examples
+// hasSameBread(
+//     ["white bread", "lettuce", "white bread"],
+//     ["white bread", "tomato", "white bread"]
+// ) ➞ true
+//
+// hasSameBread(
+//     ["brown bread", "chicken", "brown bread"],
+//     ["white bread", "chicken", "white bread"]
+// ) ➞ false
+//
+// hasSameBread(
+//     ["toast", "cheese", "toast"],
+//     ["brown bread", "cheese", "toast"]
+// ) ➞ false
+
+function hasSameBread(arr1, arr2) {
+    return arr1[0] === arr2[0] && arr1[2] === arr2[2];
+}
+
+// Creates a function that takes a string and returns the concatenated first and last character.
+//
+//     Examples
+// firstLast("ganesh") ➞ "gh"
+//
+// firstLast("kali") ➞ "ki"
+//
+// firstLast("shiva") ➞ "sa"
+//
+// firstLast("vishnu") ➞ "vu"
+//
+// firstLast("durga") ➞ "da"
+
+function firstLast(name) {
+    return name[0] + name[name.length-1];
+}
+
+// Create a function that takes in a word and determines whether or not it is plural. A plural word is one that ends in "s".
+//
+//     Examples
+// isPlural("changes") ➞ true
+//
+// isPlural("change") ➞ false
+//
+// isPlural("dudes") ➞ true
+//
+// isPlural("magic") ➞ false
+
+function isPlural(word) {
+    return word[word.length-1] === "s";
+}
+
+
+// A typical car can hold four passengers and one driver, allowing five people to travel around. Given n number of people, return how many cars are needed to seat everyone comfortably.
+//
+//     Examples
+// carsNeeded(5) ➞ 1
+//
+// carsNeeded(11) ➞ 3
+//
+// carsNeeded(0) ➞ 0
+// Notes
+// It's likely there will be a few people left over and some cars won't be filled to max capacity.
+
+function carsNeeded(n) {
+    if(n % 5 === 0){
+        return parseInt(n/5);
+    }else {
+        return parseInt(n/5) + 1
+    }
+}
 
