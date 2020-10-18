@@ -446,3 +446,105 @@ function carsNeeded(n) {
     }
 }
 
+// Beans make Joker Persona 5 fart a lot. You can determine how hard he farts by how many beans he has eaten. The strength of the fart is equal to twice the square of the bean count plus 5 times the bean count, plus 3.
+//
+// Create a function that takes an integer beans and return the fart power.
+//
+//     Examples
+// fart(3) ➞ 36
+//
+// fart(0) ➞ 3
+//
+// fart(6) ➞ 105
+
+function fart(beans) {
+    return 2*(beans**2) + 5*beans + 3;
+}
+
+// Many IDS (for emails or Google ID) are created using the person's name.
+//
+// Create a function that will return a four-character ID using the person's first name and last name. The first character will be the first letter of the first name but in lowercase. The next three characters will be the first three characters of the last name, but the first letter will be capitalized and the other two will be in lower case.
+//
+// Examples
+// createID("mary", "lamb") ➞ "mLam"
+//
+// createID("John", "SMITH") ➞ "jSmi"
+//
+// createID("mary", "smith") ➞ "mSmi"
+
+function createID(firstname, lastname) {
+    return firstname[0].toLowerCase() + lastname[0].toUpperCase() + lastname[1].toLowerCase() + lastname[2].toLowerCase();
+}
+
+// Create a function that takes an array of two numbers and checks if the square root of the first number is equal to the cube root of the second number.
+//
+//     Examples
+// checkSquareAndCube([4, 8]) ➞ true
+//
+// checkSquareAndCube([16, 48]) ➞ false
+//
+// checkSquareAndCube([9, 27]) ➞ true
+
+function checkSquareAndCube(arr) {
+    return Math.sqrt(arr[0]) === Math.cbrt(arr[1]);
+}
+
+// Write a function to check if an array contains a particular number.
+//
+//     Examples
+// check([1, 2, 3, 4, 5], 3) ➞ true
+//
+// check([1, 1, 2, 1, 1], 3) ➞ false
+//
+// check([5, 5, 5, 6], 5) ➞ true
+//
+// check([], 5) ➞ false
+
+function check(arr, el) {
+    return arr.includes(el);
+}
+
+// Create a function that returns the number of syllables in a simple string. The string is made up of short repeated words like "Lalalalalalala" (which would have 7 syllables).
+//
+// Examples
+// countSyllables("Hehehehehehe") ➞ 6
+//
+// countSyllables("bobobobobobobobo") ➞ 8
+//
+// countSyllables("NANANA") ➞ 3
+
+function countSyllables(str) {
+    return str.length/2;
+}
+
+// Given a fraction as a string, return whether or not it is greater than 1 when evaluated.
+//
+//     Examples
+// greaterThanOne("1/2") ➞ false
+//
+// greaterThanOne("7/4") ➞ true
+//
+// greaterThanOne("10/10") ➞ false
+
+function greaterThanOne(frac) {
+    return eval(frac) > 1;
+}
+
+// Create a function which validates whether a given number exists, and could represent a real life quantity. Inputs will be given as a string.
+//
+//     Examples
+// validStrNumber("3.2") ➞ true
+//
+// validStrNumber("324") ➞ true
+//
+// validStrNumber("54..4") ➞ false
+//
+// validStrNumber("number") ➞ false
+
+function validStrNumber(n) {
+    return !isNaN(n);
+}
+
+
+
+
