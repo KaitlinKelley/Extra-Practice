@@ -545,6 +545,38 @@ function validStrNumber(n) {
     return !isNaN(n);
 }
 
+// Create a function that returns the total number of parameters passed in.
+//
+// Examples
+// numberArgs("a", "b", "c") ➞ 3
+//
+// numberArgs(10, 20, 30, 40, 50) ➞ 5
+//
+// numberArgs(x, y) ➞ 2
+//
+// numberArgs() ➞ 0
+
+function numberArgs() {
+    return arguments.length;
+}
+
+// Create a function that takes in a current mood and return a sentence in the following format: "Today, I am feeling {mood}". However, if no argument is passed, return "Today, I am feeling neutral".
+//
+//     Examples
+// moodToday("happy") ➞ "Today, I am feeling happy"
+//
+// moodToday("sad") ➞ "Today, I am feeling sad"
+//
+// moodToday() ➞ "Today, I am feeling neutral"
+
+function moodToday(mood) {
+    if(mood === "" || mood === undefined){
+        return "Today, I am feeling neutral";
+    } else {
+        return "Today, I am feeling " + mood;
+    }
+}
+
 
 
 
