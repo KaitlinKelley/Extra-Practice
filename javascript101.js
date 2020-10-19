@@ -1596,3 +1596,70 @@ function totalOfBookPrices(arrayOfObjects){
 
 assert(totalOfBookPrices(books), 122.9, "Exercise 92")
 addToDone("Exercise 92 is complete.")
+
+
+// Exercise 93
+// Write a function named getAverageBookPrice that takes in a array of objects and returns the average book price.
+
+function getAverageBookPrice(arrayOfObjects){
+    var totalPrice = 0;
+    var numOfBooks = 0;
+    arrayOfObjects.forEach(function(object){
+        totalPrice += object.price;
+        numOfBooks++;
+    })
+    return totalPrice/numOfBooks;
+}
+
+assert(getAverageBookPrice(books), 30.725, "Exercise 93");
+addToDone("Exercise 93 is complete.")
+
+
+// Exercise 94
+// Write a function called highestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the highest priced book.
+// Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
+
+function highestPriceBook(arrayOfObjects){
+    var maxPriceBook = {
+        "price" : 0
+    };
+    arrayOfObjects.forEach(function(object){
+        if(object.price > maxPriceBook.price){
+            maxPriceBook = object;
+        }
+    })
+    return maxPriceBook;
+}
+
+assert(highestPriceBook(books), {
+    "title": "The Visual Display of Quantitative Information",
+    "price": 38.00,
+    "author": "Edward Tufte"
+}, "Exercise 94");
+
+addToDone("Exercise 94 is complete")
+
+
+
+// Exercise 95
+// Write a function called lowestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the lowest priced book.
+// Hint: Much like sometimes start functions with a variable set to zero or float('inf'), you may want to create a object with the price set to float('inf') to compare to each object in the array
+
+function lowestPriceBook(arrayOfObjects){
+    var minPriceBook = {
+        "price" : Infinity
+    }
+    arrayOfObjects.forEach(function(object){
+        if(object.price < minPriceBook.price){
+            minPriceBook = object;
+        }
+    })
+    return minPriceBook;
+}
+
+assert(lowestPriceBook(books), {
+    "title": "Weapons of Math Destruction",
+    "author": "Cathy O'Neil",
+    "price": 17.44
+}, "Exercise 95");
+addToDone("Exercise 95 is complete.")
