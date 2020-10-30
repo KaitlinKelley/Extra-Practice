@@ -577,6 +577,80 @@ function moodToday(mood) {
     }
 }
 
+// You will be given an array of drinks, with each drink being an object with two properties: name and price. Create a function that has the drinks array as an argument and return the drinks object sorted by price in ascending order.
+//
+//     Assume that the following array of drink objects needs to be sorted:
+//
+//     drinks = [
+//         {name: "lemonade", price: 50},
+//         {name: "lime", price: 10}
+//     ]
+// The output of the sorted drinks object will be:
+//
+//     Examples
+// sortDrinkByPrice(drinks) ➞ [{name: "lime", price: 10}, {name: "lemonade", price: 50}]
+
+function sortDrinkByPrice(drinks){
+    drinks.sort(function(a,b) {
+        return a.price - b.price
+    })
+
+    return drinks;
+}
+
+// Write a function that stutters a word as if someone is struggling to read it. The first two letters are repeated twice with an ellipsis ... and space after each, and then the word is pronounced with a question mark ?.
+//
+//     Examples
+// stutter("incredible") ➞ "in... in... incredible?"
+//
+// stutter("enthusiastic") ➞ "en... en... enthusiastic?"
+//
+// stutter("outstanding") ➞ "ou... ou... outstanding?"
+
+function stutter(word) {
+    var firstTwo = word.charAt(0) + word.charAt(1);
+    return firstTwo + "... " + firstTwo + "... " + word + "?";
+}
+
+// The packaging system is running wild! The candy is lying loose all over in the warehouse, the cereal is missing, and bread is stuffed in a bottle. What is going on here? The candy should be in plastic and the bread should be in a bag.
+//
+//     The packaging machine is running the getContainer() function to retrieve the container of a product. But something is not right...
+//
+// Examples
+// getContainer("Bread") ➞ "bag"
+//
+// getContainer("Beer") ➞ "bottle"
+//
+// getContainer("Candy") ➞ "plastic"
+//
+// getContainer("Cheese") ➞ null
+
+function getContainer(product) {
+    let container
+    switch (product) {
+        case "Bread":
+            container = "bag";
+            break
+        case "Beer":
+        case "Milk":
+            container = "bottle";
+            break
+        case "Cerials":
+            container = "box";
+            break
+        case "Eggs":
+            container = "carton"
+            break
+        case "Candy":
+            container = "plastic";
+            break
+        default:
+            container = null
+    }
+
+    return container;
+}
+
 
 
 
