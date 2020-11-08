@@ -1,15 +1,4 @@
 
-// Exercise #0, Example Problem:
-// Example problem setup: Create a variable named doingJSRightNow and assign it the boolean true.
-// The line below creates the variable named doingJSRightNow and assigns the boolean value true
-// To complete Exercise #0, uncomment the following line of JS
-var doingJSRightNow = true
-
-// The lines below will test your answer. If you see an error, then it means that your answer is incorrect or incomplete.
-// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined to understand this error message.
-assert(doingJSRightNow, true, "Exercise 0");
-
-
 //  Exercise 1
 // On the line below, create a variable named onMarsRightNow and assign it the boolean value of false
 // For more on variables, see https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables
@@ -288,12 +277,7 @@ addToDone("Exercise 16 is correct.")
 // Write a function definition named isPositiveOdd that takes in a number and returns true or false if the value is both greater than zero and odd
 
 function isPositiveOdd(x){
-    var remainder = x%2
-    if(x>0 && remainder !== 0){
-        return true
-    }else{
-        return false
-    }
+    return (x%2 !== 0 && x > 0);
 }
 
 assert(isPositiveOdd(3), true, "Exercise 17");
@@ -423,7 +407,11 @@ addToDone("Exercise 24 is correct.")
 // Write a function definition named absoluteValue that takes in a number and returns the absolute value of the provided number
 
 function absoluteValue(x){
-    return Math.abs(x);
+    if(x < 0){
+        return x*(-1);
+    } else {
+        return x;
+    }
 }
 
 assert(absoluteValue(4), 4, "Exercise 25");
@@ -694,7 +682,8 @@ addToDone("Exercise 42 is correct.")
 // Write a function definition named isVowel that takes in value and returns true if the value is a, e, i, o, u in upper or lower case.
 
 function isVowel(x){
-    return (x == "A" || x == "E" || x == "I" || x == "O" || x == "U" || x == "a" || x == "e" || x == "i" || x == "o" || x == "u");
+    var lowerCaseLetter = x.toLowerCase();
+    return (lowerCaseLetter == "a" || lowerCaseLetter == "e" || lowerCaseLetter == "i" || lowerCaseLetter == "o" || lowerCaseLetter == "u");
 
 }
 
@@ -729,7 +718,14 @@ addToDone("Exercise 44 is correct.")
 // Write a function definition named countVowels that takes in value and returns the count of the nubmer of vowels in a sequence.
 
 function countVowels(string){
-    return (string.match(/[aeiou]/gi) || []).length
+    var count = 0;
+    for(var i = 0; i < string.length; i++){
+        var current = string[i].toLowerCase();
+        if(current === "a" || current === "e" || current === "i" || current === "o" || current === "u"){
+            count++;
+        }
+    }
+    return count;
 }
 
 assert(countVowels("banana"), 3, "Exercise 45");
@@ -759,13 +755,8 @@ addToDone("Exercise 46 is correct.")
 // Write a function definition named startsWithVowel that takes in string and true if the string starts with a vowel
 
 function startsWithVowel(string){
-    var vowels = /^[aeiou]/i
-    var matched = string.match(vowels)
-    if (matched){
-        return true
-    }else {
-        return false
-    }
+    return (string[0] === "A" || string[0] === "E" || string[0] === "I" || string[0] === "O" || string[0] === "U" ||
+        string[0] === "a" || string[0] === "e" || string[0] === "i" || string[0] === "o" || string[0] === "u");
 }
 
 assert(startsWithVowel("ubuntu"), true, "Exercise 47");
@@ -814,14 +805,8 @@ addToDone("Exercise 49 is correct.")
 // Exercise 50
 // Write a function definition named first that takes in sequence and returns the first value of that sequence.
 
-function first(string, array){
-    var firstLetter = string[0];
-    if (firstLetter == undefined){
-        return array[0]
-    }else{
-        return firstLetter
-    }
-
+function first(input){
+    return input[0];
 }
 
 assert(first("ubuntu"), "u", "Exercise 50");
@@ -835,14 +820,8 @@ addToDone("Exercise 50 is correct.")
 // Exercise 51
 // Write a function definition named second that takes in sequence and returns the second value of that sequence.
 
-function second(string, array){
-    var secondLetter = string[1];
-    if (secondLetter == undefined){
-        return array[1]
-    }else{
-        return secondLetter
-    }
-
+function second(input){
+    return input[1];
 }
 
 assert(second("ubuntu"), "b", "Exercise 51");
@@ -854,14 +833,8 @@ addToDone("Exercise 51 is correct.")
 // Exercise 52
 // Write a function definition named third that takes in sequence and returns the third value of that sequence.
 
-function third(string, array){
-    var thirdLetter = string[2];
-    if (thirdLetter == undefined){
-        return array[2]
-    }else{
-        return thirdLetter
-    }
-
+function third(input){
+    return input[2];
 }
 
 
@@ -874,14 +847,8 @@ addToDone("Exercise 52 is correct.")
 // Exercise 53
 // Write a function definition named forth that takes in sequence and returns the forth value of that sequence.
 
-function forth(string, array){
-    var forthLetter = string[3];
-    if (forthLetter == undefined){
-        return array[3]
-    }else{
-        return forthLetter
-    }
-
+function forth(input){
+    return input[3];
 }
 
 assert(forth("ubuntu"), "n", "Exercise 53");
@@ -893,13 +860,8 @@ addToDone("Exercise 53 is correct.")
 // Exercise 54
 // Write a function definition named last that takes in sequence and returns the last value of that sequence.
 
-function last(string,array){
-    var lastLetter = string[string.length -1];
-    if (lastLetter == undefined){
-        return array[array.length-1];
-    }else{
-        return lastLetter;
-    }
+function last(input){
+    return input[input.length - 1];
 }
 
 assert(last("ubuntu"), "u", "Exercise 54");
@@ -912,13 +874,8 @@ addToDone("Exercise 54 is correct.")
 // Exercise 55
 // Write a function definition named secondToLast that takes in sequence and returns the second to last value of that sequence.
 
-function secondToLast(string,array){
-    var almostLastLetter = string[string.length - 2];
-    if (almostLastLetter == undefined){
-        return array[array.length - 2];
-    }else{
-        return almostLastLetter;
-    }
+function secondToLast(input){
+    return input[input.length - 2];
 }
 
 assert(secondToLast("ubuntu"), "t", "Exercise 55");
@@ -931,13 +888,8 @@ addToDone("Exercise 55 is correct.")
 // Exercise 56
 // Write a function definition named thirdToLast that takes in sequence and returns the third to last value of that sequence.
 
-function thirdToLast(string,array){
-    var thirdToLastLetter = string[string.length - 3];
-    if (thirdToLastLetter == undefined){
-        return array[array.length - 3];
-    }else{
-        return thirdToLastLetter;
-    }
+function thirdToLast(input){
+    return input[input.length- 3];
 }
 
 assert(thirdToLast("ubuntu"), "n", "Exercise 56");
@@ -1191,6 +1143,15 @@ function hasEvens(array){
     })
     return foundAnEven;
 }
+
+
+assert(hasEvens([1, 2, 3]), true, "Exercise 71");
+assert(hasEvens([2, 5, 6]), true, "Exercise 71");
+assert(hasEvens([3, 3, 3]), false, "Exercise 71");
+assert(hasEvens([]), false, "Exercise 71");
+addToDone("Exercise 71 is correct.");
+
+
 
 // Exercise 72
 // Write a function definition named countEvens that takes in sequence of numbers and returns the number of even numbers
@@ -1664,6 +1625,39 @@ assert(lowestPriceBook(books), {
 }, "Exercise 95");
 addToDone("Exercise 95 is complete.")
 
+
+const shoppingCart = {
+    "tax": .08,
+    "items": [
+        {
+            "title": "orange juice",
+            "price": 3.99,
+            "quantity": 1
+        },
+        {
+            "title": "rice",
+            "price": 1.99,
+            "quantity": 3
+        },
+        {
+            "title": "beans",
+            "price": 0.99,
+            "quantity": 3
+        },
+        {
+            "title": "chili sauce",
+            "price": 2.99,
+            "quantity": 1
+        },
+        {
+            "title": "chocolate",
+            "price": 0.75,
+            "quantity": 9
+        }
+    ]
+}
+
+
 // Exercise 96
 // Write a function named getTaxRate that takes in the above shopping cart as input and returns the tax rate.
 // Hint: How do you access a key's value on a object? The tax rate is one key of the entire shoppingCart object.
@@ -1723,3 +1717,48 @@ function getAverageItemPrice(shoppingCart){
     return totalPrice/count;
 
 }
+
+assert(getAverageItemPrice(shoppingCart), 2.1420000000000003, "Exercise 99");
+addToDone("Exercise 99 is complete.")
+
+
+// Exercise 100
+// Write a function named getAverageSpentPerItem that takes in the shopping cart and returns the average of summing each item's quanties times that item's price.
+// Hint: You may need to set an initial total price and total total quantity to zero, then sum up and divide that total price by the total quantity
+
+function getAverageSpentPerItem(shoppingCart){
+    var totalPrice = 0;
+    var count = 0;
+    shoppingCart.items.forEach(function(item){
+        count+=item.quantity;
+        totalPrice+=(item.quantity*item.price);
+    })
+    return totalPrice/count;
+}
+
+assert(getAverageSpentPerItem(shoppingCart), 1.333529411764706, "Exercise 100");
+addToDone("Exercise 100 is complete.")
+
+
+// Exercise 101
+// Write a function named mostSpentOnItem that takes in the shopping cart as input and returns the object associated with the item that has the highest price*quantity.
+// Be sure to do this as programmatically as possible.
+// Hint: Similarly to how we sometimes begin a function with setting a variable to zero, we need a starting place:
+// Hint: Consider creating a variable that is a object with the keys "price" and "quantity" both set to 0. You can then compare each item's price and quantity total to the one from "most"
+
+function mostSpentOnItem(shoppingCart){
+    var mostObject = {"title": "", "price": 0, "quantity": 0};
+    shoppingCart.items.forEach(function(item){
+        if(item.price*item.quantity > mostObject.price*mostObject.quantity){
+            mostObject = item;
+        }
+    })
+    return mostObject;
+}
+
+assert(mostSpentOnItem(shoppingCart), {
+    "title": "chocolate",
+    "price": 0.75,
+    "quantity": 9
+}, "Exercise 101");
+addToDone("Exercise 101 is complete.")
