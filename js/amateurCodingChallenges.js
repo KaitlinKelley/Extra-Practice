@@ -135,3 +135,13 @@
 //     }
 //     return newString;
 // }
+
+// function removeSpecialChars(string){
+//     var special = ["~","!","$","&","%"," ","#","@","-","_","^","?","'"];
+//     for(var i = 0; i < string.length; i++){
+//         if(special.includes(string[i])){
+//             string = string.replace(string[i], "");
+//         }
+//     }
+//     return string;
+// }

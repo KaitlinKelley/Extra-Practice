@@ -77,6 +77,7 @@
 //             return boblessArray;
 // }
 
+//OR----------------------------------------
 // function noRoberts(arrayOfNames){
 //     var varietiesOfRobert = ["robert", "rob", "bob", "bobby", "bobert", "robby"];
 //     var boblessBucket = [];
@@ -169,6 +170,9 @@ var rectanglesTwo = [{height: 10, width: 10, color: "yellow"}, {height: 88, widt
 // }
 // console.log(findLargest(rectanglesOne))
 // console.log(findLargest(rectanglesTwo))
+
+
+
 
 // Write a function called orderDigits that accepts a number
 // and returns a number with the digits ordered from smallest to largest
