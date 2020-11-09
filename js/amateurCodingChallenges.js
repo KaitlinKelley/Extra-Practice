@@ -83,6 +83,52 @@
 //     }
 // }
 
+
+// 6. Write a function to calculate a person’s age based on the date entered in the format MM/DD/YYYY.
+//
+//     Example:
+//
+//
+// Input: 11/04/1982
+// Output: 34
+
+// function calcAge(birthDate, currentDate){
+//     var age = 0;
+//     var ageArray = birthDate.split("/");
+//     var currentDateArray = currentDate.split("/");
+//     var birthYear = ageArray[2];
+//     var birthMonth = ageArray[0];
+//     var birthDay = ageArray[1];
+//     var currentYear = currentDateArray[2];
+//     var currentMonth = currentDateArray[0];
+//     var currentDay = currentDateArray[1];
+//     if(birthMonth < currentMonth){
+//         age = currentYear - birthYear;
+//     } else if (birthMonth >= currentMonth && birthDay < currentDay){
+//         age = currentYear - birthYear - 1;
+//     } else if (birthMonth >= currentMonth && birthDay >= currentDay){
+//         age = currentYear - birthYear;
+//     }
+//     if(age >= 100 && age < 150){
+//         return "They're over " + 100 + " years old...they're probably dead."
+//     } else if(age >= 150){
+//         return "OH MY GOD, they're DEFINITELY DEAD."
+//     } else
+//     return age;
+// }
+//
+// console.log(calcAge("10/06/1986", "11/08/2020"));
+// console.log(calcAge("11/22/1987", "11/08/2020"));
+// console.log(calcAge("09/06/1990", "11/08/2020"));
+// console.log(calcAge("07/20/1996", "11/08/2020"));
+// console.log(calcAge("06/21/2006", "11/08/2020"));
+// console.log(calcAge("08/05/1397", "11/08/2020"));
+// console.log(calcAge("08/05/1278", "11/08/2020"));
+// console.log(calcAge("08/05/1794", "11/08/2020"));
+// console.log(calcAge("08/05/1937", "11/08/2020"));
+// console.log(calcAge("02/03/1525", "11/08/2020"));
+
+
 // 7. Write a function to convert a string into an array of words.
 //
 //     Example:
