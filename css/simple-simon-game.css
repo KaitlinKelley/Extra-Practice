@@ -10,8 +10,8 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    width: 500px;
-    height: 500px;
+    width: 480px;
+    height: 480px;
     border: 4px solid black;
 }
 
@@ -25,6 +25,10 @@ h1 {
     width: 200px;
     margin: 1.1em;
     opacity: 45%;
+}
+
+.square-top {
+    margin-bottom: 0.8em;
 }
 
 .square-1 {
