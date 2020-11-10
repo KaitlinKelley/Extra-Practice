@@ -23,7 +23,22 @@ h1 {
 .square-small {
     height: 200px;
     width: 200px;
-    background-color: lightskyblue;
     margin: 1.1em;
-    opacity: 50%;
+    opacity: 45%;
+}
+
+.square-1 {
+    background-color: yellow;
+}
+
+.square-2 {
+    background-color: blue;
+}
+
+.square-3 {
+    background-color: red;
+}
+
+.square-4 {
+    background-color: green;
 }
