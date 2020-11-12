@@ -5,8 +5,7 @@ var randomNumber = Math.floor(Math.random() * 4) + 1;
 
 var compOrder = [];
 var playerOrder = [];
-var numOfFlashes = 0;
-var userClicks = 0;
+var numOfFlashes;
 var wonRound;
 var wonGame = false;
 var gameStarted = false;
@@ -17,7 +16,7 @@ var playerTurn = false;
 var intervalId;
 
 var square = $(".square-small");
-var counterContainer = $(".round-tracker");
+var roundCounter = $(".round-tracker");
 var yellowSquare = $(".square-1");
 var blueSquare = $(".square-2");
 var redSquare = $(".square-3");
@@ -27,42 +26,72 @@ var startBtn = $(".start-btn");
 
 //Keeps track of whether the play won a round or not
 //If player sequence is wrong, alerts them and turns off the game
-function didPlayerWinRound(){
-    if(compOrder === playerOrder){
-        wonRound = true;
-        roundNumber++;
-    } else {
-        wonRound = false;
-        alert("You lost! Click Start to start over.");
-        gameStarted = false;
-    }
-}
+// function didPlayerWinRound(){
+//     if(compOrder === playerOrder){
+//         wonRound = true;
+//         roundNumber++;
+//         roundCounter.innerHTML = roundNumber;
+//     } else {
+//         wonRound = false;
+//         alert("You lost! Click Start to start over.");
+//         gameStarted = false;
+//     }
+// }
 
+
+// function renderRoundTracker(){
+//     var html = '<div class="round-tracker-inner">';
+//     html += '<div>' + "<p>" + "Round Number: " + roundNumber + '</div>';
+//     html += '</div>'
+//     return html;
+// }
+
+
+function playGame(){
+    wonGame = false;
+    compOrder = [];
+    playerOrder = [];
+    numOfFlashes = 0;
+    intervalId = 0;
+    roundNumber = 1;
+    wonRound = false;
+    roundCounter.innerHTML = roundNumber;
+    for(var i = 0; i < 20; i++){
+        var randomNumber = Math.floor(Math.random() * 4) + 1;
+        compOrder.push(randomNumber);
+    }
+    compTurn = true;
+    intervalId = setInterval(compFlash, 800);
+}
 
 
 
 function compFlash(){
+    gameStarted = false;
     if (numOfFlashes === roundNumber){
         clearInterval(intervalId);
         compTurn = false;
+        returnColors();
         playerTurn = true;
+        gameStarted = true;
 
     }
-
     if (compTurn){
-        setTimeout()
+        returnColors();
+        setTimeout(function(){
+            if (compOrder[numOfFlashes] === 1){
+                flashYellow();
+            } else if (compOrder[numOfFlashes] === 2){
+                flashBlue();
+            } else if (compOrder[numOfFlashes] === 3){
+                flashRed();
+            } else if (compOrder[numOfFlashes] === 4){
+                flashGreen();
+            }
+            numOfFlashes++;
+        }, 200);
     }
 }
-
-
-
-function renderRoundTracker(){
-    var html = '<div class="round-tracker-inner">';
-    html += '<div>' + "<p>" + "Round Number: " + roundNumber + '</div>';
-    html += '</div>'
-    return html;
-}
-
 
 //These functions are what the computer uses to flash the colors, and then "unflash" them
 function flashYellow(){
@@ -89,26 +118,23 @@ function returnColors(){
 }
 //=====================================================
 
-
-function startGame(){
-    wonGame = false;
-    compOrder = [];
-    playerOrder = [];
-    numOfFlashes = 0;
-    intervalId = 0;
-    roundNumber = 1;
-    wonRound = false;
-    for(var i = 0; i < 20; i++){
-        var randomNumber = Math.floor(Math.random() * 4) + 1;
-        compOrder.push(randomNumber);
-
+function checkIfCorrect(){
+    if(playerOrder[playerOrder.length - 1] !== compOrder[playerOrder.length - 1]){
+        wonRound = false;
+        // gameOver();
+    } else if(playerOrder.length === 20 && wonRound){
+        wonGame = true;
+        winGame();
+    } else if(roundNumber === playerOrder.length && wonRound && !wonGame){
+        roundNumber++;
+        playerOrder = [];
+        playerTurn = false;
+        compTurn = true;
+        numOfFlashes = 0;
+        roundCounter.innerHTML = roundNumber;
+        intervalId = setInterval(compFlash, 800);
     }
-    compTurn = true;
-    intervalId = setInterval(compFlash, 800);
 }
-
-
-
 
 
 
@@ -116,7 +142,6 @@ function startGame(){
 $(square).mousedown(function(){
     if(gameStarted) {
         $(this).css("opacity", "100%");
-        userClicks += 1;
     }
 });
 
@@ -127,20 +152,38 @@ $(square).mouseup(function(){
 
 //pushes the corresponding number of each square into the playerOrder array
 $(yellowSquare).click(function(){
-    if(gameStarted){
+    if(gameStarted && playerTurn){
         playerOrder.push(1);
+        checkIfCorrect();
+        if(!wonGame){
+            setTimeout(function(){
+                returnColors();
+            }, 300);
+        }
     }
 });
 
 $(blueSquare).click(function(){
-    if(gameStarted){
+    if(gameStarted && playerTurn){
     playerOrder.push(2);
+        checkIfCorrect();
+        if(!wonGame){
+            setTimeout(function(){
+                returnColors();
+            }, 300);
+        }
     }
 });
 
 $(redSquare).click(function(){
     if(gameStarted && playerTurn){
         playerOrder.push(3);
+        checkIfCorrect();
+        if(!wonGame){
+            setTimeout(function(){
+                returnColors();
+            }, 300);
+        }
     }
 });
 
@@ -148,6 +191,12 @@ $(greenSquare).click(function(){
     if(gameStarted && playerTurn) {
         playerOrder.push(4);
         console.log(playerOrder);
+        checkIfCorrect();
+        if(!wonGame){
+            setTimeout(function(){
+                returnColors();
+            }, 300);
+        }
     }
 });
 //==================================================
@@ -155,7 +204,22 @@ $(greenSquare).click(function(){
 
 $(startBtn).click(function(){
     gameStarted = true;
+    if(gameStarted){
+        roundNumber = 0;
+        roundCounter.innerHTML = roundNumber;
+    } else {
+        gameStarted = false;
+        roundCounter.innerHTML = "";
+        returnColors();
+        clearInterval();
+    }
     if(gameStarted || wonGame){
-        startGame();
+        playGame();
     }
 });
+
+function winGame(){
+    wonGame = true;
+    roundCounter.innerHTML = "Yay!";
+    gameStarted = true;
+}
