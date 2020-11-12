@@ -39,12 +39,12 @@ var startBtn = $(".start-btn");
 // }
 
 
-// function renderRoundTracker(){
-//     var html = '<div class="round-tracker-inner">';
-//     html += '<div>' + "<p>" + "Round Number: " + roundNumber + '</div>';
-//     html += '</div>'
-//     return html;
-// }
+function renderRoundTracker(){
+    var html = '<div class="round-tracker-inner">';
+    html += '<div>' + "<p>" + "Round Number: " + roundNumber + '</div>';
+    html += '</div>'
+    return html;
+}
 
 
 function playGame(){
@@ -55,7 +55,8 @@ function playGame(){
     intervalId = 0;
     roundNumber = 1;
     wonRound = false;
-    roundCounter.html = roundNumber;
+    renderRoundTracker();
+    // roundCounter.html = roundNumber;
     for(var i = 0; i < 20; i++){
         var randomNumber = Math.floor(Math.random() * 4) + 1;
         compOrder.push(randomNumber);
@@ -111,10 +112,10 @@ function flashGreen(){
 }
 
 function returnColors(){
-    $(yellowSquare).css("opacity", "50%");
-    $(blueSquare).css("opacity", "50%");
-    $(redSquare).css("opacity", "50%");
-    $(greenSquare).css("opacity", "50%");
+    $(yellowSquare).css("opacity", "45%");
+    $(blueSquare).css("opacity", "45%");
+    $(redSquare).css("opacity", "45%");
+    $(greenSquare).css("opacity", "45%");
 }
 //=====================================================
 
