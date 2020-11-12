@@ -55,7 +55,7 @@ function playGame(){
     intervalId = 0;
     roundNumber = 1;
     wonRound = false;
-    roundCounter.innerHTML = roundNumber;
+    roundCounter.html = roundNumber;
     for(var i = 0; i < 20; i++){
         var randomNumber = Math.floor(Math.random() * 4) + 1;
         compOrder.push(randomNumber);
@@ -131,7 +131,7 @@ function checkIfCorrect(){
         playerTurn = false;
         compTurn = true;
         numOfFlashes = 0;
-        roundCounter.innerHTML = roundNumber;
+        roundCounter.html = roundNumber;
         intervalId = setInterval(compFlash, 800);
     }
 }
@@ -206,10 +206,10 @@ $(startBtn).click(function(){
     gameStarted = true;
     if(gameStarted){
         roundNumber = 0;
-        roundCounter.innerHTML = roundNumber;
+        roundCounter.html = roundNumber;
     } else {
         gameStarted = false;
-        roundCounter.innerHTML = "";
+        roundCounter.html = "";
         returnColors();
         clearInterval();
     }
@@ -220,6 +220,6 @@ $(startBtn).click(function(){
 
 function winGame(){
     wonGame = true;
-    roundCounter.innerHTML = "Yay!";
+    roundCounter.html = "Yay!";
     gameStarted = true;
 }
