@@ -13,7 +13,7 @@ var roundNumber = 0;
 var compTurn = false;
 var playerTurn = false;
 
-var intervalId;
+var intervalId = 0;
 
 var square = $(".square-small");
 var roundCounter = $(".round-tracker");
@@ -224,3 +224,8 @@ function winGame(){
     roundCounter.html = "Yay!";
     gameStarted = true;
 }
+//From Brance===================
+
+setInterval(function(){
+
+}, 1000)
