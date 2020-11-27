@@ -683,3 +683,22 @@ function cubes(a) {
     return a ** 3;
 }
 
+// Jay and Silent Bob have been given a fraction of an ounce but they only understand grams. Convert a fraction passed as a string to grams with up to two decimal places. An ounce weighs 28 grams.
+//
+//     Examples
+// jayAndBob("half") ➞ "14 grams"
+//
+// jayAndBob("quarter") ➞ "7 grams"
+//
+// jayAndBob("eighth") ➞ "3.5 grams"
+
+const jayAndBob = str => {
+    let fraction;
+
+    if (str === 'half') fraction = 1 / 2;
+    if (str === 'quarter') fraction = 1 / 4;
+    if (str === 'eighth') fraction = 1 / 8;
+    if (str === 'sixteenth') fraction = 1 / 16;
+
+    return `${fraction * 28} grams`;
+};
