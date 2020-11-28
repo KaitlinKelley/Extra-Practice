@@ -98,6 +98,15 @@ assert(fruitsAndVeggies, ['tomato', 'strawberry', 'mango', 'kiwi', 'guava', 'ban
 addToDone("Exercise 10 is correct")
 
 // This function generates a random number that is both positive and even
+//ES6
+// const randomPositiveEvenNumber = () => {
+//     var randomNumber = Math.ceil(Math.random() * 100) + 10;
+//     if(randomNumber % 2 !== 0) {
+//         return randomPositiveEvenNumber()
+//     }
+//     return randomNumber;
+// }
+
 function randomPositiveEvenNumber() {
     var randomNumber = Math.ceil(Math.random() * 100) + 10;
     if(randomNumber % 2 !== 0) {
@@ -153,6 +162,8 @@ var negativeOddNumber = randomNegativeOddNumber();
 function sayHello(name) {
     return "Hello, " + name + "!";
 }
+//ES6
+// const sayHello = name => `Hello, ${name}!`;
 
 assert(sayHello("Jane"), "Hello, Jane!");
 assert(sayHello("Pat"), "Hello, Pat!");
