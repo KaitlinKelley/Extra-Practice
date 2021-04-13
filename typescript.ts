@@ -98,9 +98,9 @@ console.log(gradeGenerator(88));
 
 //Function Declaration
 //Declared functions get hoisted to the top
-function fullName(first : string, last : string) : string {
-    return first + " " + last;
-}
+// function fullName(first : string, last : string) : string {
+//     return first + " " + last;
+// }
 
 //=====================================================================
 //Function Expression
