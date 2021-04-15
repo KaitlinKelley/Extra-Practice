@@ -329,7 +329,67 @@ function printName(f,l){
 // console.log(profile(realUser));
 
 
+interface InvoiceFunc {
+    //args and return type
+    (name:string, total:number) : void;
+}
 
+let myInvoice : InvoiceFunc;
+myInvoice = function(n,t){
+    console.log(n);
+    console.log(t);
+}
+
+myInvoice("Google", 500);
+
+//loosely coupled interface with class
+interface User {
+    email:string;
+    firstName?:string;
+    lastName?:string;
+}
+
+class Admin {
+    role:string;
+    constructor(public email:string){
+        this.role = "Admin";
+    }
+}
+
+function profile(user:User) : string{
+    return `Welcome, ${user.email}`;
+}
+
+var joe = new Admin("joe@joe.com");
+console.log(joe.role);
+
+
+//Direct Implementation
+//Interface name should match class, with I in front
+interface IPost {
+    title:string;
+    body:string;
+}
+
+class Post implements IPost {
+    title:string;
+    body:string;
+
+    constructor(post:IPost){
+        this.title = post.title;
+        this.body = post.body;
+    }
+
+    printPost(){
+        console.log(this.title);
+        console.log(this.body);
+    }
+}
+
+var post = new Post({title:"My Title", body:"Stuff"});
+console.log(post.title);
+console.log(post.body);
+post.printPost();
 
 
 
