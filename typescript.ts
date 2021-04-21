@@ -699,15 +699,6 @@ const formattedEmployees = data?.employees?.map((employee:EmployeeType) => {
 // Output:
 // ["TEST@EXAMPLE.COM admin, superAdmin", "TEST2@EXAMPLE.COM undefined", "TEST3@EXAMPLE.COM undefined"]
 
-
-
-
-
-
-
-
-
-
 console.log(formattedEmployees);
 
 
